@@ -27,3 +27,5 @@ dependencies {
    compile "me.kingtux:enumconfig:1.0-SNAPSHOT"
 }
 ```
+## Example
+https://github.com/wherkamp/EnumConfig/tree/master/src/test/java/me/kingtux/enumconfig/tests
