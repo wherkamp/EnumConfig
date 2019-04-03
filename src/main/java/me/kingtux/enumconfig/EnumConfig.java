@@ -45,4 +45,8 @@ public class EnumConfig {
             }
         }
     }
+
+    public static void loadLang(ValueHandler file, Class<? extends Enum> enu) {
+        loadLang(file, enu, true);
+    }
 }
