@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 
 public class EnumConfig {
-    public static void loadLang(ValueGetter file, Class<? extends Enum> enu, boolean writeUnsetValues) {
+    public static void loadLang(ValueHandler file, Class<? extends Enum> enu, boolean writeUnsetValues) {
         Field[] fields = FieldFinder.getAllFieldsWithAnnotation(enu, ConfigEntry.class, true);
         //There should only be one of them.
         Field editableThing = FieldFinder.getFirstFieldWithAnnotation(enu, ConfigValue.class, true);

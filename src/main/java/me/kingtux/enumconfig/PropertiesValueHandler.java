@@ -3,11 +3,11 @@ package me.kingtux.enumconfig;
 import java.io.*;
 import java.util.Properties;
 
-public class PropertiesValueGetter implements ValueGetter {
+public class PropertiesValueHandler implements ValueHandler {
     private File file;
     private Properties properties;
 
-    public PropertiesValueGetter(File file) {
+    public PropertiesValueHandler(File file) {
         this.file = file;
         properties = new Properties();
         try {

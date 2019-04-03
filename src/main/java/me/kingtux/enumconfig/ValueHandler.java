@@ -2,7 +2,7 @@ package me.kingtux.enumconfig;
 
 import java.io.IOException;
 
-public interface ValueGetter {
+public interface ValueHandler {
 
     String get(String path);
 
