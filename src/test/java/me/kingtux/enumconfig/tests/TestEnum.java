@@ -4,9 +4,9 @@ import me.kingtux.enumconfig.annotations.ConfigEntry;
 import me.kingtux.enumconfig.annotations.ConfigValue;
 
 public enum TestEnum {
-    @ConfigEntry(path = "hey")
+    @ConfigEntry
     HELLO("HEY MAN!"),
-    @ConfigEntry(path = "bye")
+    @ConfigEntry( "bye")
     BYE("BYE MAN!");
     @ConfigValue
     private String value;

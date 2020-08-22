@@ -18,9 +18,9 @@ public class EnumConfig {
             field.setAccessible(true);
             ConfigEntry configEntry = field.getAnnotationsByType(ConfigEntry.class)[0];
             //Basically if it is not found in the needed language it will revert back to the default in English
-            if (file.get(configEntry.path()) != null) {
+            if (file.get(parseEntryPath(configEntry, field)) != null) {
                 try {
-                    editableThing.set(Enum.valueOf(enu, field.getName()), file.get(configEntry.path()));
+                    editableThing.set(Enum.valueOf(enu, field.getName()), file.get(parseEntryPath(configEntry, field)));
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
@@ -30,9 +30,9 @@ public class EnumConfig {
         if (writeUnsetValues) {
             for (Field field : fields) {
                 ConfigEntry configEntry = field.getAnnotation(ConfigEntry.class);
-                if (file.get(configEntry.path()) == null ) {
+                if (file.get(parseEntryPath(configEntry, field)) == null) {
                     try {
-                        file.set(configEntry.path(), (String) editableThing.get(Enum.valueOf(enu, field.getName())));
+                        file.set(parseEntryPath(configEntry, field), (String) editableThing.get(Enum.valueOf(enu, field.getName())));
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     }
@@ -44,6 +44,13 @@ public class EnumConfig {
                 e.printStackTrace();
             }
         }
+    }
+
+    private static final String parseEntryPath(ConfigEntry configEntry, Field field) {
+        if (configEntry.value().isEmpty()) {
+            return field.getName().replace("_", ".").toLowerCase();
+        }
+        return configEntry.value();
     }
 
     public static void loadLang(ValueHandler file, Class<? extends Enum> enu) {
