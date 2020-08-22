@@ -28,4 +28,10 @@ public class BukkitYamlHandler implements ValueHandler {
     public void set(String path, String o) {
         configuration.set(path, o);
     }
+
+    @Override
+    public String getDivider() {
+        return "-";
+    }
+
 }

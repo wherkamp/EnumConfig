@@ -9,5 +9,7 @@ public interface ValueHandler {
     void save() throws IOException;
 
     void set(String path, String o);
+
+    String getDivider();
 }
 

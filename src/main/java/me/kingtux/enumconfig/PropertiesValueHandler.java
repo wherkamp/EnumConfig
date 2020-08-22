@@ -1,6 +1,9 @@
 package me.kingtux.enumconfig;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 public class PropertiesValueHandler implements ValueHandler {
@@ -11,7 +14,7 @@ public class PropertiesValueHandler implements ValueHandler {
         this.file = file;
         properties = new Properties();
         try {
-            if(!file.exists()) file.createNewFile();
+            if (!file.exists()) file.createNewFile();
 
             properties.load(new FileInputStream(file));
         } catch (IOException e) {
@@ -34,5 +37,10 @@ public class PropertiesValueHandler implements ValueHandler {
     @Override
     public void set(String path, String o) {
         properties.setProperty(path, o);
+    }
+
+    @Override
+    public String getDivider() {
+        return ".";
     }
 }
