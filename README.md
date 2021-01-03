@@ -1,4 +1,4 @@
-# EnumConfig
+# EnumConfig [![Maven Version](https://mvnhelper.potatocorp.dev/kingtux/me.kingtux/enumconfig/badge.png)](https://mvnhelper.potatocorp.dev/kingtux/me.kingtux/enumconfig)
 
 Simple configs inside an Enum
 
